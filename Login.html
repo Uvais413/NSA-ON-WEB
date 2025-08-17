@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #00b4db, #0083b0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+    }
+    .login-box, .dashboard {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        backdrop-filter: blur(6px);
+        width: 320px;
+        animation: fadeIn 0.8s ease both;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        background: #00e3ae;
+        font-size: 1.1rem;
+        color: #fff;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    button:hover {
+        transform: scale(1.05);
+        background: #00cba1;
+    }
+    .error {
+        color: #ffcccc;
+        font-size: 0.9rem;
+        text-align: center;
+        display: none;
+    }
+    .profile-pic {
+        display: block;
+        margin: 0 auto 15px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .meeting-details {
+        background: rgba(255,255,255,0.15);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+</style>
+</head>
+<body oncontextmenu="return false">
+
+<!-- Login Box -->
+<div class="login-box" id="loginBox">
+    <h2>Executive Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Passcode" required>
+    <div class="error" id="errorMsg">Invalid username or passcode</div>
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- Dashboard -->
+<div class="dashboard" id="dashboard" style="display:none;">
+    <img id="profilePic" class="profile-pic" src="" alt="Profile Picture">
+    <h2 id="welcomeMsg"></h2>
+    <div class="meeting-details">
+        <h3>📅 Next Meeting</h3>
+        <p><b>Date:</b> 18 August 2025</p>
+        <p><b>Time:</b> 5:00 PM</p>
+        <p><b>Notes:</b> Review annual budget, plan cultural event.</p>
+    </div>
+</div>
+
+<script>
+    // Predefined users
+    const users = {
+        "12": {password: "12", name: "12", img: "https://via.placeholder.com/120"},
+        "jane": {password: "5678", name: "Jane Smith", img: "https://via.placeholder.com/120"},
+        "mark": {password: "9012", name: "Mark Wilson", img: "https://via.placeholder.com/120"}
+    };
+
+    function login() {
+        const user = document.getElementById("username").value.trim().toLowerCase();
+        const pass = document.getElementById("password").value.trim();
+        const errorMsg = document.getElementById("errorMsg");
+
+        if (users[user] && users[user].password === pass) {
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("dashboard").style.display = "block";
+            document.getElementById("welcomeMsg").innerText = "Welcome, " + users[user].name;
+            document.getElementById("profilePic").src = users[user].img;
+        } else {
+            errorMsg.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>

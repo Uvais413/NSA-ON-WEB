@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Committee Page</title>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Smooth Fade-in Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Page Header */
+.page-header {
+    background: #0066cc;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.page-header i {
+    margin-right: 8px;
+}
+
+/* Section Titles */
+.committee-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.committee-section h2 {
+    color: #0066cc;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.committee-section h2 i {
+    margin-right: 8px;
+}
+
+/* Executive Committee */
+.executive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.member-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-card img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 0.8rem;
+}
+
+.member-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.member-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Bigger photos for President & Secretary */
+.member-card.big img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Sub Committee */
+.subcommittee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+
+.member-card.small img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Table Styling */
+.class-executive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.class-executive-table th, 
+.class-executive-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.class-executive-table th {
+    background: #0066cc;
+    color: white;
+}
+
+.class-executive-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .member-card.big img {
+        width: 140px;
+        height: 140px;
+    }
+    .member-card.small img {
+        width: 80px;
+        height: 80px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+    <i class="fas fa-users"></i> Committee Members
+</header>
+
+<main>
+
+<!-- Section 01: Executive Committee -->
+<section class="committee-section">
+    <h2><i class="fas fa-user-tie"></i> Executive Committee</h2>
+    <div class="executive-grid">
+        <div class="member-card big fade-in"><img src="https://via.placeholder.com/180" alt="President"><h3>John Doe</h3><p>President</p></div>
+        <div class="member-card big fade-in"><img src="https://via.placeholder.com/180" alt="Secretary"><h3>Jane Smith</h3><p>Secretary</p></div>
+        <div class="member-card fade-in"><img src="https://via.placeholder.com/140" alt="Member"><h3>Ali Khan</h3><p>Vice President</p></div>
+        <div class="member-card fade-in"><img src="https://via.placeholder.com/140" alt="Member"><h3>Maryam Noor</h3><p>Treasurer</p></div>
+        <div class="member-card fade-in"><img src="https://via.placeholder.com/140" alt="Member"><h3>Hassan Raza</h3><p>Coordinator</p></div>
+        <div class="member-card fade-in"><img src="https://via.placeholder.com/140" alt="Member"><h3>Fatima Zain</h3><p>Media Head</p></div>
+        <div class="member-card fade-in"><img src="https://via.placeholder.com/140" alt="Member"><h3>Omar Malik</h3><p>Event Manager</p></div>
+        <div class="member-card fade-in"><img src="https://via.placeholder.com/140" alt="Member"><h3>Amna Ali</h3><p>Public Relations</p></div>
+    </div>
+</section>
+
+<!-- Section 02: Sub Committee -->
+<section class="committee-section">
+    <h2><i class="fas fa-users-cog"></i> Sub Committee</h2>
+    <div class="subcommittee-grid">
+        <!-- 15 members dummy -->
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 1</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 2</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 3</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 4</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 5</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 6</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 7</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 8</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 9</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 10</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 11</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 12</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 13</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 14</h3><p>Role</p></div>
+        <div class="member-card small fade-in"><img src="https://via.placeholder.com/100" alt=""><h3>Member 15</h3><p>Role</p></div>
+    </div>
+</section>
+
+<!-- Section 03: Class Union's Executive -->
+<section class="committee-section">
+    <h2><i class="fas fa-chalkboard-teacher"></i> Class Union's Executive</h2>
+    <table class="class-executive-table">
+        <thead>
+            <tr>
+                <th>Class</th>
+                <th>Sl. No</th>
+                <th>Name</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Class-01</td>
+                <td>1</td>
+                <td>Ahmed Khan</td>
+                <td>President</td>
+            </tr>
+            <tr>
+                <td>Class-01</td>
+                <td>2</td>
+                <td>Ayesha Noor</td>
+                <td>Secretary</td>
+            </tr>
+            <tr>
+                <td>Class-01</td>
+                <td>3</td>
+                <td>Bilal Ahmed</td>
+                <td>Contact</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</main>
+
+<script>
+// Trigger fade-in animations when scrolling
+const cards = document.querySelectorAll('.member-card');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>

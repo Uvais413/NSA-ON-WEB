@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Islamic Student Union - Top Classes & Feedback</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #ffd700; /* Gold */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px #000;
+    letter-spacing: 2px;
+  }
+
+  /* Container */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #162447;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  }
+
+  /* Section Titles */
+  section h2 {
+    color: #ffd700;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px #000;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+  }
+  th {
+    background: #1b263b;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  tbody tr:hover {
+    background: #27496d;
+    cursor: default;
+    transition: background 0.3s;
+  }
+
+  /* Top Icons */
+  .top-icon {
+    font-size: 1.4rem;
+    vertical-align: middle;
+  }
+  .gold { color: #ffd700; }      /* Gold */
+  .silver { color: #c0c0c0; }    /* Silver */
+  .bronze { color: #cd7f32; }    /* Bronze */
+  .no-top {
+    font-size: 1rem;
+    color: #bbb;
+  }
+
+  /* Button */
+  .btn-full-list {
+    display: inline-block;
+    background: #ffd700;
+    color: #162447;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+  }
+  .btn-full-list:hover {
+    background: #e6c200;
+  }
+
+  /* Feedback form */
+  form {
+    background: #1b263b;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0008 inset;
+  }
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  form input[type="text"],
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  form textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  form button {
+    background: #ffd700;
+    color: #162447;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+  }
+  form button:hover {
+    background: #e6c200;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    th, td {
+      font-size: 0.9rem;
+      padding: 10px 8px;
+    }
+    .btn-full-list, form button {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+
+  /* Animations */
+  /* Fade in */
+  .fade-in {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* Button pulse animation */
+  .btn-full-list:hover {
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.7); }
+    50% { box-shadow: 0 0 20px rgba(255, 215, 0, 1); }
+  }
+
+</style>
+</head>
+<body>
+
+<h1 class="fade-in">Top Classes</h1>
+
+<div class="container fade-in" style="animation-delay: 0.3s;">
+
+  <!-- Section 01: Class List -->
+  <section id="class-list">
+    <h2>Top Classes</h2>
+    <table aria-label="Top Classes List">
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Class</th>
+          <th>Mark</th>
+          <th>Top</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Class 10</td>
+          <td>95</td>
+          <td><i class="fa-solid fa-medal top-icon gold" title="Gold"></i></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Class 9</td>
+          <td>90</td>
+          <td><i class="fa-solid fa-medal top-icon silver" title="Silver"></i></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Class 8</td>
+          <td>88</td>
+          <td><i class="fa-solid fa-medal top-icon bronze" title="Bronze"></i></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Class 7</td>
+          <td>80</td>
+          <td><span class="no-top">-</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Class 6</td>
+          <td>75</td>
+          <td><span class="no-top">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section 02: Full Mark List Button -->
+  <section id="full-mark">
+    <button class="btn-full-list" onclick="alert('Redirecting to full mark list...')">
+      Full Mark List <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </section>
+
+  <!-- Section 03: Feedback Form -->
+  <section id="feedback" style="margin-top: 40px;">
+    <h2>Feedback</h2>
+    <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbznejUpswF_kzLvW-rihkk2vwb3RiLjjr11OWCwYAxjeISx-oZpO9t0PbGvLeaYzBuRtg/exec" method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required placeholder="Your Name" />
+
+  <label for="page-select">Select Page</label>
+  <select id="page-select" name="page" required>
+    <option value="" disabled selected>Select a page</option>
+    <option value="pg-01">pg - 01</option>
+    <option value="pg-02">pg - 02</option>
+    <option value="other">Other</option>
+  </select>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" required placeholder="Your feedback"></textarea>
+
+  <button type="submit">Submit Feedback</button>
+</form>
+
+    
+  </section>
+
+</div>
+
+<!-- Hidden iframe to submit the form without redirect -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  function handleSubmit(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const name = form.name.value.trim();
+  const page = form.page.value;
+  const message = form.message.value.trim();
+
+  if (!name || !page || !message) {
+    alert("Please fill all the fields.");
+    return false;
+  }
+
+  // Submit the form to the hidden iframe for silent submission
+  form.submit();
+
+  alert("Feedback submitted successfully!");
+  form.reset();
+
+  return false; // Prevent page reload
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,677 @@
+/* Import Google Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  color: #333;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ddd;
+}
+
+/* Topbar: left dark button, right time */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #004080;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#darkModeToggle {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#darkModeToggle .material-icons {
+  font-size: 1.7rem;
+}
+
+.datetime {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.datetime .material-icons {
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+/* Remove nav-links from navbar */
+.navbar .nav-links {
+  display: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #0059b3;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .navbar {
+  background-color: #003366;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #003366;
+  animation: popIn 1s ease forwards;
+}
+
+.logo h1 {
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1.2px;
+}
+
+/* Logo subtitle */
+.logo-subtitle {
+  font-size: 1rem;
+  color: #ffd700;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+  display: block;
+}
+
+/* HERO NAV BOXES */
+.hero-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 2;
+  cursor: pointer;
+}
+.hero-menu-toggle .material-icons {
+  font-size: 2.2rem;
+}
+
+.hero-nav-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  transition: max-height 0.3s, opacity 0.3s;
+}
+.hero-nav-box {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #1976d2;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0.7rem 1.7rem;
+  min-width: 120px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  border: none;
+  position: relative;
+}
+.hero-nav-box .material-icons {
+  font-size: 1.6rem;
+  margin-bottom: 0;
+}
+.hero-nav-box.active,
+.hero-nav-box:hover {
+  background: #ffd700;
+  color: #004080;
+  box-shadow: 0 6px 24px rgba(25,118,210,0.18);
+  border: 1px solid #ffd700;
+}
+.hero-nav-box.login-box {
+  background: #fff;
+  color: #1976d2;
+  border: 1px solid #ffd700;
+}
+.hero-nav-box.login-box:hover {
+  background: #ffd700;
+  color: #004080;
+}
+
+/* Glassmorphism for hero and nav boxes */
+.hero,
+.hero-nav-boxes,
+.box-section,
+.members-connect-box {
+  backdrop-filter: blur(8px) saturate(120%);
+  background: rgba(255,255,255,0.13);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.15);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Modern button style */
+.hero-menu-toggle,
+#darkModeToggle {
+  background: rgba(255,255,255,0.18);
+  border-radius: 50%;
+  border: none;
+  color: #1976d2;
+  box-shadow: 0 2px 8px rgba(0,64,128,0.10);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.2s;
+}
+.hero-menu-toggle.active,
+#darkModeToggle:active {
+  background: #ffd700;
+  color: #004080;
+  transform: scale(1.08);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #004080 0%, #0066cc 100%);
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "🌙";
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 5rem;
+  opacity: 0.15;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 1.3s ease forwards;
+}
+
+/* Content Sections */
+main {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.content-section {
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  color: #004080;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+body.dark-mode .content-section h2 {
+  color: #ffd700;
+}
+
+.content-section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 4px;
+  width: 60px;
+  background: #ffd700;
+  border-radius: 2px;
+}
+
+/* About Us, Vision, Mission paragraphs */
+.content-section p,
+.content-section ul {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+body.dark-mode .content-section p,
+body.dark-mode .content-section ul {
+  color: #ccc;
+}
+
+/* Lists */
+.content-section ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+}
+
+/* President Talk */
+.president-talk {
+  background-color: #e6f0ff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+body.dark-mode .president-talk {
+  background-color: #00264d;
+}
+
+.president-talk img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #004080;
+  animation: popIn 1s ease forwards;
+}
+
+body.dark-mode .president-talk img {
+  border-color: #ffd700;
+}
+
+.president-talk blockquote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #004080;
+}
+
+body.dark-mode .president-talk blockquote {
+  color: #ffd700;
+}
+
+.president-talk footer {
+  margin-top: 0.8rem;
+  font-weight: 700;
+  text-align: right;
+  color: #004080;
+}
+
+body.dark-mode .president-talk footer {
+  color: #ffd700;
+}
+
+/* Vision & Mission Boxes */
+.box-section {
+  background: #e6f0ff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,64,128,0.08);
+  padding: 2rem 2rem 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-left: 6px solid #004080;
+  position: relative;
+}
+
+body.dark-mode .box-section {
+  background: #00264d;
+  border-left-color: #ffd700;
+}
+
+.box-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 2rem;
+  color: #004080;
+}
+
+body.dark-mode .box-section h2 {
+  color: #ffd700;
+}
+
+/* Members to Connect Box */
+.members-connect-box {
+  background: #fffbe6;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.08);
+  padding: 2rem 2rem 1.5rem 2rem;
+  margin-bottom: 2rem;
+  border-left: 6px solid #ffd700;
+  position: relative;
+}
+
+body.dark-mode .members-connect-box {
+  background: rgba(51,51,0,0.85);
+  border-left-color: #ffd700;
+}
+
+.members-connect-box h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 2rem;
+  color: #bfa100;
+}
+
+body.dark-mode .members-connect-box h2 {
+  color: #ffd700;
+}
+
+.members-connect-box a {
+  color: #004080;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid #ffd700;
+  transition: color 0.2s;
+}
+
+.members-connect-box a:hover {
+  color: #ffd700;
+}
+
+/* Explore More Grid */
+.explore-more-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2rem;
+  margin-top: 1.2rem;
+}
+.explore-box {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #e6f7f7;
+  color: #085c53;
+  border-radius: 10px;
+  padding: 1rem 2.2rem;
+  font-weight: 600;
+  font-size: 1.13rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(8,92,83,0.06);
+  transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+  margin-bottom: 0.7rem;
+}
+.explore-box .material-icons {
+  font-size: 1.7rem;
+}
+.explore-box:hover {
+  background: #d0f0ec;
+  color: #004080;
+  box-shadow: 0 4px 16px rgba(8,92,83,0.12);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #004080;
+  color: white;
+  font-weight: 500;
+  margin-top: auto;
+}
+
+body.dark-mode footer {
+  background-color: #00264d;
+}
+
+/* Mobile Nav Icon */
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffd700;
+  font-size: 2.2rem;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 64, 128, 0.97);
+  z-index: 1001;
+  transition: opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+.mobile-nav-overlay.open {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  gap: 1.2rem;
+}
+.mobile-nav-links .hero-nav-box {
+  width: 80vw;
+  max-width: 320px;
+  font-size: 1.15rem;
+  justify-content: flex-start;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: #1976d2;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.10);
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+.mobile-nav-links .hero-nav-box.active,
+.mobile-nav-links .hero-nav-box:hover {
+  background: #ffd700;
+  color: #004080;
+}
+.mobile-nav-links .hero-nav-box.login-box {
+  background: #fff;
+  color: #1976d2;
+  border: 1px solid #ffd700;
+}
+.mobile-nav-links .hero-nav-box.login-box:hover {
+  background: #ffd700;
+  color: #004080;
+}
+
+/* Close button */
+.mobile-nav-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  color: #ffd700;
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 1003;
+}
+
+/* Hide default nav links on mobile */
+@media (max-width: 900px) {
+  .hero-nav-boxes {
+    display: none !important;
+  }
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+
+/* Hide hamburger icon when overlay is open */
+.mobile-nav-overlay.open ~ .navbar .mobile-nav-toggle {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .president-talk {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .president-talk blockquote {
+    font-size: 1rem;
+  }
+
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+  .logo-subtitle {
+    font-size: 0.9rem;
+  }
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .box-section,
+  .members-connect-box {
+    padding: 1.2rem 1rem;
+    font-size: 1rem;
+  }
+  .president-talk img {
+    width: 100px;
+    height: 100px;
+  }
+  .explore-box {
+    padding: 0.7rem 0.7rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .explore-more-grid {
+    gap: 1rem;
+  }
+  .explore-box {
+    padding: 1rem 1rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .explore-more-grid {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .explore-box {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 1rem;
+    padding: 1rem 0.7rem;
+  }
+}
+
+/* Add focus styles for accessibility */
+.hero-nav-box:focus,
+.explore-box:focus,
+#darkModeToggle:focus,
+.hero-menu-toggle:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255,215,0,0.18);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

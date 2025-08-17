@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fund Track — College Union</title>
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    /* ====== Reset & Base ====== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, "Segoe UI", Roboto, system-ui, Arial, sans-serif;
+      background: linear-gradient(180deg,#f5fbff 0%, #eef7fb 100%);
+      color:#0b2433;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* ====== Passcode screen ====== */
+    .pass-screen{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background: linear-gradient(135deg,#0077b6,#00b4d8);
+      color:white;
+      gap:18px;
+      flex-direction:column;
+      text-align:center;
+    }
+    .pass-card{
+      background: rgba(255,255,255,0.07);
+      padding:26px;
+      border-radius:12px;
+      width:100%;
+      max-width:420px;
+      box-shadow: 0 12px 40px rgba(2,48,71,0.18);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+    .pass-card h2{font-size:1.35rem;margin-bottom:8px}
+    .pass-input{
+      width:100%;
+      padding:12px 14px;
+      border-radius:8px;border:none;outline:none;
+      margin-top:12px;font-size:1rem;
+    }
+    .pass-btn{
+      margin-top:12px;padding:10px 14px;border-radius:10px;border:none;
+      background:#ffd166;color:#002f2f;font-weight:700;cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    /* ====== Header & Layout ====== */
+    header.site-header{
+      background: #012a4a;
+      color: white;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      box-shadow:0 6px 20px rgba(1,38,66,0.12);
+      position:sticky; top:0; z-index:40;
+    }
+    header .title{font-weight:700;font-size:1.1rem}
+    .container{max-width:1100px;margin:20px auto;padding:16px}
+
+    /* ====== Sections ====== */
+    .panel{
+      background: #fff;border-radius:12px;padding:18px;margin-bottom:18px;
+      box-shadow:0 8px 28px rgba(2,40,60,0.06);
+      border:1px solid rgba(4,48,71,0.03);
+      transition:transform .14s ease, box-shadow .14s;
+    }
+    .panel:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(2,40,60,0.08)}
+
+    .panel h3{display:flex;align-items:center;gap:10px;color:#023047;margin-bottom:10px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:none;
+      cursor:pointer;font-weight:700;background:#0077b6;color:#fff;box-shadow:0 8px 20px rgba(3,80,120,0.12);
+    }
+    .btn.ghost{background:transparent;color:#0077b6;border:2px solid rgba(0,119,182,0.12);font-weight:700}
+    .btn.small{padding:8px 10px;font-size:0.95rem}
+    .btn:active{transform:translateY(1px)}
+
+    /* iframe area */
+    .viewer{
+      margin-top:14px;border-radius:8px;overflow:hidden;border:1px solid #e6eef3;
+      background:#fff; display:none;
+    }
+    .viewer iframe{width:100%;height:520px;border:0}
+
+    /* mobile tweaks */
+    @media (max-width:820px){
+      .viewer iframe{height:420px}
+      .pass-card{max-width:360px}
+      header .title{font-size:1rem}
+    }
+    @media (max-width:480px){
+      .viewer iframe{height:360px}
+      .actions{flex-direction:column;align-items:stretch}
+    }
+
+    /* subtle appear animation */
+    .fade-in{opacity:0;transform:translateY(10px);animation:fadeIn .5s ease forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+
+  <!-- PASSCODE SCREEN -->
+  <div id="passScreen" class="pass-screen">
+    <div class="pass-card fade-in" role="dialog" aria-labelledby="passTitle">
+      <h2 id="passTitle"><i class="fa-solid fa-lock-keyhole"></i> Enter Passcode to Open Fund Track</h2>
+      <p style="opacity:.92">This page is restricted — only executive members can access fund spreadsheets.</p>
+      <input id="passField" class="pass-input" type="password" placeholder="Enter passcode" aria-label="Passcode">
+      <div style="display:flex;gap:8px;justify-content:center">
+        <button class="pass-btn" onclick="unlock()">Unlock</button>
+      </div>
+      <p style="font-size:0.88rem;margin-top:10px;opacity:.9">Passcode is provided to authorized persons only.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT (hidden until passcode accepted) -->
+  <header class="site-header" style="display:none" id="siteHeader">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:44px;height:44px;border-radius:9px;background:linear-gradient(135deg,#ffd166,#ff7b00);display:grid;place-items:center;color:#052a30;font-weight:800">FT</div>
+      <div class="title">Fund Track — College Union</div>
+    </div>
+    <div style="margin-left:auto;color:#cbe7ff;font-weight:600">Secure Access</div>
+  </header>
+
+  <main class="container" id="mainContent" style="display:none">
+    <!-- Section 01: Home -->
+    <section class="panel fade-in" id="panelHome">
+      <h3><i class="fa-regular fa-house"></i> Home</h3>
+
+      <div class="actions">
+        <button class="btn" onclick="viewSheet('homeViewer')"><i class="fa-regular fa-eye"></i> View</button>
+        <button class="btn ghost small" onclick="downloadSheet('home')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+        <div style="margin-left:auto;color:#557; font-weight:600">Linked sheet preview</div>
+      </div>
+
+      <div class="viewer" id="homeViewer"><iframe id="homeIframe" title="Home Sheet"></iframe></div>
+    </section>
+
+    <!-- Section 02: Class Base Result -->
+    <section class="panel fade-in" id="panelClass">
+      <h3><i class="fa-solid fa-users"></i> Class Base Result</h3>
+
+      <!-- TH-01 -->
+      <div style="margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:700;color:#0b3b4a">TH-01</div>
+          <div style="display:flex;gap:10px" class="actions">
+            <button class="btn small" onclick="viewSheet('TH01Viewer')"><i class="fa-regular fa-eye"></i> View</button>
+            <button class="btn ghost small" onclick="downloadSheet('TH01')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+          </div>
+        </div>
+        <div class="viewer" id="TH01Viewer"><iframe id="TH01Iframe" title="TH01 Sheet"></iframe></div>
+      </div>
+
+      <!-- AL-02 -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:700;color:#0b3b4a">AL-02</div>
+          <div style="display:flex;gap:10px" class="actions">
+            <button class="btn small" onclick="viewSheet('AL02Viewer')"><i class="fa-regular fa-eye"></i> View</button>
+            <button class="btn ghost small" onclick="downloadSheet('AL-02')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+          </div>
+        </div>
+        <div class="viewer" id="AL02Viewer"><iframe id="AL02Iframe" title="AL-02 Sheet"></iframe></div>
+      </div>
+      <!-- AL-03 -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:700;color:#0b3b4a">AL-03</div>
+          <div style="display:flex;gap:10px" class="actions">
+            <button class="btn small" onclick="viewSheet('AL03Viewer')"><i class="fa-regular fa-eye"></i> View</button>
+            <button class="btn ghost small" onclick="downloadSheet('AL-03')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+          </div>
+        </div>
+        <div class="viewer" id="AL03Viewer"><iframe id="AL03Iframe" title="AL-03 Sheet"></iframe></div>
+      </div>
+
+      <!-- AL-04 -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:700;color:#0b3b4a">AL-04</div>
+          <div style="display:flex;gap:10px" class="actions">
+            <button class="btn small" onclick="viewSheet('AL04Viewer')"><i class="fa-regular fa-eye"></i> View</button>
+            <button class="btn ghost small" onclick="downloadSheet('AL-04')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+          </div>
+        </div>
+        <div class="viewer" id="AL04Viewer"><iframe id="AL04Iframe" title="AL-04 Sheet"></iframe></div>
+      </div>
+      <!-- PG-01 --> 
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:700;color:#0b3b4a">PG-01</div>
+          <div style="display:flex;gap:10px" class="actions">
+            <button class="btn small" onclick="viewSheet('PG01Viewer')"><i class="fa-regular fa-eye"></i> View</button>
+            <button class="btn ghost small" onclick="downloadSheet('PG-01')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+          </div>
+        </div>
+        <div class="viewer" id="PG01Viewer"><iframe id="PG01Iframe" title="PG-01 Sheet"></iframe></div>
+      </div>
+      <!-- PG-02 -->
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div style="font-weight:700;color:#0b3b4a">PG-02</div>
+          <div style="display:flex;gap:10px" class="actions">
+            <button class="btn small" onclick="viewSheet('PG02Viewer')"><i class="fa-regular fa-eye"></i> View</button>
+            <button class="btn ghost small" onclick="downloadSheet('PG02')"><i class="fa-solid fa-file-arrow-down"></i> Download</button>
+          </div>
+        </div>
+        <div class="viewer" id="PG02Viewer"><iframe id="PG02Iframe" title="PG-02 Sheet"></iframe></div>
+      </div>
+
+
+    </section>
+  </main>
+
+  <script>
+    /* ========== CONFIG - replace these with your actual Google Sheet URLs ==========
+       Use either a published "preview" URL or the "export?format=csv" link for downloads.
+       Examples:
+       - Google Sheets "publish to web" embed url (iframe): https://docs.google.com/spreadsheets/d/e/XXXX/pubhtml
+       - Google Sheet view: https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit#gid=0  (works if shared appropriately)
+       - CSV export for download: https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv&id=YOUR_SHEET_ID&gid=0
+    ============================================================================== */
+    const HOME_SHEET_URL  = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml"; // replace
+    const TH01_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml?gid=1059609752&single=true"; // replace
+    const AL02_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml?gid=1816297420&single=true"; // replace
+    const AL03_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml?gid=1987398387&single=true";
+    const AL04_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml?gid=99789795&single=true";
+    const PG01_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml?gid=1262132864&single=true";
+    const PG02_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pubhtml?gid=1333853275&single=true";
+
+
+    // for download links (optional) - replace with export CSV or xlsx links if preferred
+    const HOME_DOWNLOAD_URL  ="https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=0&single=true&output=pdf"; // replace
+    const TH01_DOWNLOAD_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=1059609752&single=true&output=pdf"; // replace
+    const AL02_DOWNLOAD_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=1816297420&single=true&output=pdf"; // replace
+    const AL03_DOWNLOAD_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=1987398387&single=true&output=pdf"; // replace
+    const AL04_DOWNLOAD_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=99789795&single=true&output=pdf"; // replace
+    const PG01_DOWNLOAD_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=1262132864&single=true&output=pdf"; // replace
+    const PG02_DOWNLOAD_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXU1wodKze29yZgZpUOg27TcgktDWiUkvPrrxrR1s1o-8zWxmXuToB51p0gF6AQLkLVFgX04bOK5ir/pub?gid=1333853275&single=true&output=pdf"; // replace
+
+    /* ========== PASSCODE (client-side) ==========
+       Currently uses a plain JS check. If you need stronger security, use a server-side check or hashed storage.
+    ============================================================================== */
+    const PASSCODE = "NSA*1:";
+
+    function unlock(){
+      const v = document.getElementById('passField').value;
+      if (v === PASSCODE){
+        document.getElementById('passScreen').style.display = 'none';
+        document.getElementById('siteHeader').style.display = 'flex';
+        document.getElementById('mainContent').style.display = 'block';
+
+        // reveal with a tiny delay for polish
+        document.querySelectorAll('.fade-in').forEach((el,i)=>{
+          el.style.animationDelay = (i*80)+'ms';
+        });
+      } else {
+        // simple feedback
+        alert('Incorrect passcode.');
+        // flash the input
+        const f = document.getElementById('passField');
+        f.animate([{background:'#fff7'},{background:'#ffdede'},{background:'#fff7'}],{duration:420});
+        f.focus();
+      }
+    }
+
+    /* View sheet by showing iframe and setting src */
+    function viewSheet(viewerId){
+      // choose which iframe to update
+      if (viewerId === 'homeViewer'){
+        const v = document.getElementById('homeViewer');
+        const iframe = document.getElementById('homeIframe');
+        iframe.src = HOME_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+      if (viewerId === 'AL04Viewer'){
+        const v = document.getElementById('AL04Viewer');
+        const iframe = document.getElementById('AL04Iframe');
+        iframe.src = AL04_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+      if (viewerId === 'TH01Viewer'){
+        const v = document.getElementById('TH01Viewer');
+        const iframe = document.getElementById('TH01Iframe');
+        iframe.src = TH01_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+      if (viewerId === 'AL02Viewer'){
+        const v = document.getElementById('AL02Viewer');
+        const iframe = document.getElementById('AL02Iframe');
+        iframe.src = AL02_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+      if (viewerId === 'AL03Viewer'){
+        const v = document.getElementById('AL03Viewer');
+        const iframe = document.getElementById('AL03Iframe');
+        iframe.src = AL03_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+      if (viewerId === 'AL04Viewer'){
+        const v = document.getElementById('AL04Viewer');
+        const iframe = document.getElementById('AL04Iframe');
+        iframe.src = AL04_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+      if (viewerId === 'PG01Viewer'){
+        const v = document.getElementById('PG01Viewer');
+        const iframe = document.getElementById('PG01Iframe');
+        iframe.src = PG01_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+       if (viewerId === 'PG02Viewer'){
+        const v = document.getElementById('PG02Viewer');
+        const iframe = document.getElementById('PG02Iframe');
+        iframe.src = PG02_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+        
+
+      }
+      else if (viewerId === 'class2Viewer'){
+        const v = document.getElementById('class2Viewer');
+        const iframe = document.getElementById('class2Iframe');
+        iframe.src = CLASS2_SHEET_URL;
+        v.style.display = 'block';
+        scrollIntoViewSmooth(v);
+      }
+    }
+
+    /* Download sheet — open the download URL in new tab */
+    function downloadSheet(which){
+      let url = '#';
+      if (which === 'home') url = HOME_DOWNLOAD_URL;
+      if (which === 'AL01') url = AL01_DOWNLOAD_URL;
+      if (which === 'AL02') url = AL02_DOWNLOAD_URL;
+      if (which === 'AL03') url = AL03_DOWNLOAD_URL;
+      if (which === 'AL04') url = AL04_DOWNLOAD_URL;
+      if (which === 'PG01') url = PG01_DOWNLOAD_URL;
+      if (which === 'PG02') url = PG02_DOWNLOAD_URL;
+      // open in new tab
+      window.open(url,'_blank');
+    }
+
+    function scrollIntoViewSmooth(el){
+      setTimeout(()=> el.scrollIntoView({behavior:'smooth',block:'center'}),160);
+    }
+
+    /* Accessibility: allow Enter key to unlock */
+    document.addEventListener('keydown', (e)=>{
+      const passScreen = document.getElementById('passScreen');
+      if (passScreen.style.display !== 'none' && e.key === 'Enter'){
+        unlock();
+      }
+    });
+
+    /* OPTIONAL: If the user wants to auto-open Home on unlock, uncomment:
+    document.getElementById('passField').addEventListener('input', (e)=>{
+      if (e.target.value === PASSCODE) {
+        unlock();
+        viewSheet('homeViewer');
+      }
+    });
+    */
+
+  </script>
+</body>
+</html>

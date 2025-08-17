@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under Maintenance</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1f3b73, #2b5876);
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    /* Bouncing Dots Loader */
+    .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        background-color: #00e0ff;
+        border-radius: 50%;
+        margin: 0 5px;
+        animation: bounce 0.6s infinite alternate;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+        to {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* Button Styling */
+    .home-btn {
+        padding: 12px 24px;
+        background-color: #00e0ff;
+        color: #1f3b73;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .home-btn:hover {
+        background-color: white;
+        color: #1f3b73;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+<h1>🚧 Under Maintenance 🚧</h1>
+<p>We’re working hard to bring you this page. Please check back soon!</p>
+
+<div class="loader">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</div>
+
+<button class="home-btn" onclick="goHome()">Back to Home</button>
+
+<script>
+    function goHome() {
+        window.location.href = "index.html"; // Change to your homepage link
+    }
+</script>
+
+</body>
+</html>

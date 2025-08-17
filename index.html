@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Noorul Huda Students Association</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Add Material Icons for icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <button id="darkModeToggle" aria-label="Toggle dark mode" tabindex="0">
+        <span class="material-icons" id="darkModeIcon">dark_mode</span>
+      </button>
+      <div class="datetime" id="datetime" aria-live="polite">
+        <span class="material-icons" style="vertical-align:middle;">schedule</span>
+        <span id="istTimeText">Loading IST Time...</span>
+      </div>
+    </div>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.jpg" alt="Union Logo" />
+        <div>
+          <h1>Noorul Huda Students Association</h1>
+          <span class="logo-subtitle">Islamic College Union</span>
+        </div>
+      </div>
+      <!-- Mobile Nav Icon -->
+      <button class="mobile-nav-toggle" aria-label="Open navigation" tabindex="0">
+        <span class="material-icons">menu</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" tabindex="-1" aria-hidden="true">
+    <button class="mobile-nav-close" aria-label="Close navigation">
+      <span class="material-icons">close</span>
+    </button>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="hero-nav-box active">
+        <span class="material-icons">home</span>
+        Home
+      </a>
+      <a href="committee.html" class="hero-nav-box">
+        <span class="material-icons">groups</span>
+        Committee
+      </a>
+      <a href="gallery.html" class="hero-nav-box">
+        <span class="material-icons">photo_library</span>
+        Gallery
+      </a>
+      <a href="Contact.html" class="hero-nav-box">
+        <span class="material-icons">contact_mail</span>
+        Contact
+      </a>
+      <a href="Login.html" class="hero-nav-box login-box">
+        <span class="material-icons">login</span>
+        Login
+      </a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to NSA WEBSITE</h2>
+      <p>Empowering Students, Promoting Unity and Excellence.</p>
+      <button class="hero-menu-toggle" aria-label="Open menu" tabindex="0">
+        <span class="material-icons">menu</span>
+      </button>
+      <div class="hero-nav-boxes" aria-label="Main navigation">
+        <a href="index.html" class="hero-nav-box active">
+          <span class="material-icons">home</span>
+          Home
+        </a>
+        <a href="committee.html" class="hero-nav-box">
+          <span class="material-icons">groups</span>
+          Committee
+        </a>
+        <a href="gallery.html" class="hero-nav-box">
+          <span class="material-icons">photo_library</span>
+          Gallery
+        </a>
+        <a href="Contact.html" class="hero-nav-box">
+          <span class="material-icons">contact_mail</span>
+          Contact
+        </a>
+        <a href="Login.html" class="hero-nav-box login-box">
+          <span class="material-icons">login</span>
+          Login
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about-us" class="content-section">
+      <h2>About Us</h2>
+      <p>The Islamic College Union is dedicated to fostering unity, education, and development among students.</p>
+    </section>
+
+    <section id="vision" class="content-section box-section">
+      <h2><span class="material-icons">visibility</span> Vision</h2>
+      <p>To build a harmonious and progressive student community grounded in Islamic values.</p>
+    </section>
+
+    <section id="mission" class="content-section box-section">
+      <h2><span class="material-icons">flag</span> Mission</h2>
+      <ul>
+        <li>Promote academic excellence.</li>
+        <li>Encourage social responsibility.</li>
+        <li>Support student welfare activities.</li>
+      </ul>
+    </section>
+<!--
+    <section class="members-connect-box">
+      <h2><span class="material-icons">connect_without_contact</span> Members Connect</h2>
+      <p>Join our vibrant community and stay updated with the latest events and opportunities.</p>
+      <a href="members.html">Connect Now</a>
+    </section>
+ -->
+    
+    <section id="principal-talk" class="content-section president-talk">
+      <h2>Principal's Talk</h2>
+      <div class="president-info">
+        <img src="president-photo.jpg" alt="Principal Photo" />
+        <blockquote>
+          <p>"Our union stands for unity, knowledge, and empowerment of every student."</p>
+          <footer>- Principal Name</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="explore-more" class="content-section">
+      <h2>Explore More</h2>
+      <div class="explore-more-grid">
+        <a href="committee.html" class="explore-box">
+          <span class="material-icons">diversity_3</span>
+          Committee
+        </a>
+        <a href="Members.html" class="explore-box">
+          <span class="material-icons">groups</span>
+          Members
+        </a>
+        <a href="Fund Track.html" class="explore-box">
+          <span class="material-icons">show_chart</span>
+          Fund Track
+        </a>
+        <a href="Top class .html" class="explore-box">
+          <span class="material-icons">workspace_premium</span>
+          Top Class
+        </a>
+        <a href="no2.html" class="explore-box">
+          <span class="material-icons">event_note</span>
+          Event &amp; Notification
+        </a>
+        <a href="no.html" class="explore-box">
+          <span class="material-icons">menu_book</span>
+          Publishing Bureau
+        </a>
+        <a href="no.html" class="explore-box">
+          <span class="material-icons">emoji_events</span>
+          Achievement
+        </a>
+        <a href="no.html" class="explore-box">
+          <span class="material-icons">palette</span>
+          Art's Fest
+        </a>
+        <a href="no2.html" class="explore-box">
+          <span class="material-icons">sports_volleyball</span>
+          Sports
+        </a>
+        <a href="Contact.html" class="explore-box">
+          <span class="material-icons">mail</span>
+          Contact
+        </a>
+      </div>
+    </section>
+
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Noorul Huda Students Association. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  // filepath: c:\Users\muham\Desktop\NSA 2025-26\WEBSITE\NSA On Web\index.html (inline script for menu)
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.hero-menu-toggle');
+    const navBoxes = document.querySelector('.hero-nav-boxes');
+    if (menuToggle && navBoxes) {
+      menuToggle.addEventListener('click', function() {
+        navBoxes.classList.toggle('open');
+        menuToggle.classList.toggle('active');
+      });
+    }
+
+    // Mobile nav overlay logic
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
+    if (mobileNavToggle && mobileNavOverlay && mobileNavClose) {
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNavOverlay.classList.add('open');
+        mobileNavOverlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        mobileNavToggle.style.display = 'none'; // Hide hamburger when overlay is open
+      });
+      mobileNavClose.addEventListener('click', function() {
+        mobileNavOverlay.classList.remove('open');
+        mobileNavOverlay.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        mobileNavToggle.style.display = ''; // Show hamburger when overlay is closed
+      });
+      // Close on overlay click (outside menu)
+      mobileNavOverlay.addEventListener('click', function(e) {
+        if (e.target === mobileNavOverlay) {
+          mobileNavOverlay.classList.remove('open');
+          mobileNavOverlay.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          mobileNavToggle.style.display = ''; // Show hamburger when overlay is closed
+        }
+      });
+    }
+  });
+  </script>
+</body>
+</html>
