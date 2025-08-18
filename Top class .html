@@ -205,32 +205,37 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td>Class 10</td>
-          <td>95</td>
+          <td>M.S.A</td>
+          <td>0</td>
           <td><i class="fa-solid fa-medal top-icon gold" title="Gold"></i></td>
         </tr>
         <tr>
           <td>2</td>
-          <td>Class 9</td>
-          <td>90</td>
+          <td>AQSA</td>
+          <td>00</td>
           <td><i class="fa-solid fa-medal top-icon silver" title="Silver"></i></td>
         </tr>
         <tr>
           <td>3</td>
-          <td>Class 8</td>
-          <td>88</td>
+          <td>HIKMA</td>
+          <td>0</td>
           <td><i class="fa-solid fa-medal top-icon bronze" title="Bronze"></i></td>
         </tr>
         <tr>
           <td>4</td>
-          <td>Class 7</td>
-          <td>80</td>
+          <td>FLAMES</td>
+          <td>0</td>
           <td><span class="no-top">-</span></td>
         </tr>
         <tr>
           <td>5</td>
-          <td>Class 6</td>
-          <td>75</td>
+          <td>ADAB</td>
+          <td>0</td>
+          <td><span class="no-top">-</span></td>
+        </tr>
+        <td>6</td>
+          <td>ALIF</td>
+          <td>0</td>
           <td><span class="no-top">-</span></td>
         </tr>
       </tbody>
@@ -247,15 +252,20 @@
   <!-- Section 03: Feedback Form -->
   <section id="feedback" style="margin-top: 40px;">
     <h2>Feedback</h2>
-    <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbznejUpswF_kzLvW-rihkk2vwb3RiLjjr11OWCwYAxjeISx-oZpO9t0PbGvLeaYzBuRtg/exec" method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)">
+    <form id="feedbackForm" action="https://script.google.com/macros/s/AKfycbwsqXI4p6xFBPZerDuoS_Ut4VqO_NPu_dxM971FTSjkf41LRSDnhE4pRsT-whJdX24fMA/exec" method="POST" target="hidden_iframe" onsubmit="return handleSubmit(event)">
   <label for="name">Name</label>
   <input type="text" id="name" name="name" required placeholder="Your Name" />
 
-  <label for="page-select">Select Page</label>
-  <select id="page-select" name="page" required>
-    <option value="" disabled selected>Select a page</option>
-    <option value="pg-01">pg - 01</option>
-    <option value="pg-02">pg - 02</option>
+  <label for="class-select">Select class</label>
+  <select id="class-select" name="class" required>
+    <option value="" disabled selected>Select Your Class </option>
+    <option value="TH-01">TH-01</option>
+    <option value="TH-02">TH-02</option>
+    <option value="AL-02">AL-02</option>
+    <option value="AL-03">AL-03</option>
+    <option value="AL-04">AL-04</option>
+    <option value="PG-01">PG-01</option>
+    <option value="PG-02">PG-02</option>
     <option value="other">Other</option>
   </select>
 
@@ -272,6 +282,9 @@
 
 <!-- Hidden iframe to submit the form without redirect -->
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+<script src="cfd.js"></script>
+
+
 
 <script>
   function handleSubmit(event) {
@@ -279,10 +292,10 @@
 
   const form = event.target;
   const name = form.name.value.trim();
-  const page = form.page.value;
+  const class = form.class.value;
   const message = form.message.value.trim();
 
-  if (!name || !page || !message) {
+  if (!name || !class || !message) {
     alert("Please fill all the fields.");
     return false;
   }
@@ -293,7 +306,7 @@
   alert("Feedback submitted successfully!");
   form.reset();
 
-  return false; // Prevent page reload
+  return false; // Prevent class reload
 }
 
 </script>
