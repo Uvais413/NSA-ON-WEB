@@ -233,7 +233,7 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
     // Replace this with your Google Apps Script URL
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwTUoivG5dTI9ywa7r2S7U8y5ntJLtSwoqzVNrTSXKi82wITlDS-JS-nJA2u33GGAt4mw/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxrJ8ibU6yfy2hcNmV96r33IpT31C8TZLbboGxd-ibsSLSRu7IRQmOuFAHekEWxtLZtQA/exec";
     const formData = new FormData(this);
 
     fetch(scriptURL, { method: "POST", body: formData })
