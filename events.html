@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event & Notification | Islamic College Union</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #0a3d62;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: #0a3d62;
+    }
+    .card .details {
+      font-size: 0.9rem;
+      margin: 10px 0;
+      color: #555;
+    }
+    .card .details i {
+      color: #0a3d62;
+      margin-right: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      margin-top: 10px;
+      background: #0a3d62;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #145a8d;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: #1e272e;
+      color: #f1f2f6;
+    }
+    .dark-mode header {
+      background: #222f3e;
+    }
+    .dark-mode .card {
+      background: #2f3640;
+      color: #f1f2f6;
+    }
+    .dark-mode .card h2, 
+    .dark-mode .card .details i {
+      color: #00a8ff;
+    }
+
+    /* Dark mode toggle */
+    #darkToggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0a3d62;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+    }
+    #darkToggle:hover {
+      background: #145a8d;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="darkToggle"><i class="fas fa-moon"></i></button>
+
+  <header>
+    <h1><i class="fa-solid fa-calendar-days"></i> Event & Notification</h1>
+    <p>Stay updated with the latest activities of our union</p>
+  </header>
+
+  <section class="container">
+    <!-- Event 1 -->
+    <div class="card">
+      <h2><i class="fa-solid fa-star"></i> Islamic Awareness Week</h2>
+      <div class="details"><i class="fa-regular fa-calendar"></i> 15th-21st March</div>
+      <div class="details"><i class="fa-regular fa-clock"></i> 10:00 AM - 2:00 PM</div>
+      <div class="details"><i class="fa-solid fa-location-dot"></i> College Auditorium</div>
+      <p>Join us for a week-long celebration of Islamic awareness, featuring lectures, discussions, and competitions.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+
+    <!-- Notification 1 -->
+    <div class="card">
+      <h2><i class="fa-solid fa-bullhorn"></i> Upcoming Meeting</h2>
+      <div class="details"><i class="fa-regular fa-calendar"></i> 20th February</div>
+      <div class="details"><i class="fa-regular fa-clock"></i> 2:00 PM</div>
+      <div class="details"><i class="fa-solid fa-location-dot"></i> Conference Room</div>
+      <p>All executive members are requested to attend an important meeting to discuss upcoming events and activities.</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="card">
+      <h2><i class="fa-solid fa-hand-holding-heart"></i> Charity Drive</h2>
+      <div class="details"><i class="fa-regular fa-calendar"></i> 1st April</div>
+      <div class="details"><i class="fa-regular fa-clock"></i> 9:00 AM - 1:00 PM</div>
+      <div class="details"><i class="fa-solid fa-location-dot"></i> College Campus</div>
+      <p>Join us for a charity drive to collect donations for the local community. Your support will make a difference!</p>
+      <a href="#" class="btn">Read More</a>
+    </div>
+  </section>
+
+  <script>
+    const toggleBtn = document.getElementById("darkToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggleBtn.innerHTML = document.body.classList.contains("dark-mode") 
+        ? '<i class="fas fa-sun"></i>' 
+        : '<i class="fas fa-moon"></i>';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Page</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {margin:0; padding:0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #0d47a1;
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .controls input, .controls select {
+      padding: 10px;
+      border: 1px solid #90caf9;
+      border-radius: 8px;
+      min-width: 200px;
+      font-size: 14px;
+    }
+    .category {
+      margin-bottom: 25px;
+    }
+    .category h2 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #1565c0;
+    }
+    .file {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .file:hover {transform: translateY(-3px);}
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .file-info i {font-size: 24px; color: #1976d2;}
+    .file-details span {display: block; font-size: 14px;}
+    .download-btn {
+      background: #1976d2;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .download-btn:hover {background: #0d47a1;}
+    .back-home {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 20px;
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .back-home:hover {background: #e65100;}
+    @media (max-width:600px){
+      .file {flex-direction: column; align-items: flex-start; gap: 10px;}
+      .download-btn {align-self: flex-start;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1><i class="fa-solid fa-download"></i> Download Resources</h1>
+
+  <!-- Search + Filter -->
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search resources...">
+    <select id="filterSelect">
+      <option value="all">All Categories</option>
+      <option value="Documents">Documents</option>
+      <option value="Forms">Forms</option>
+      <option value="Event Materials">Event Materials</option>
+      <option value="Other Files">Other Files</option>
+    </select>
+  </div>
+
+  <!-- Resources -->
+  <div id="resources">
+
+    <div class="category" data-category="Documents">
+      <h2><i class="fa-solid fa-file-alt"></i> Documents</h2>
+      <div class="file" data-name="Meeting Minutes" data-desc="Detailed notes of meeting">
+        <div class="file-info">
+          <i class="fa-solid fa-file-pdf"></i>
+          <div class="file-details">
+            <span><strong>Meeting Minutes</strong></span>
+            <span>PDF • 500 KB</span>
+            <span>Detailed notes of meeting</span>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      </div>
+      <div class="file" data-name="Annual Report" data-desc="Yearly performance report">
+        <div class="file-info">
+          <i class="fa-solid fa-file-word"></i>
+          <div class="file-details">
+            <span><strong>Annual Report</strong></span>
+            <span>DOCX • 2 MB</span>
+            <span>Yearly performance report</span>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      </div>
+    </div>
+
+    <div class="category" data-category="Forms">
+      <h2><i class="fa-solid fa-file-pen"></i> Forms</h2>
+      <div class="file" data-name="Membership Application" data-desc="Apply for membership">
+        <div class="file-info">
+          <i class="fa-solid fa-file-pdf"></i>
+          <div class="file-details">
+            <span><strong>Membership Application Form</strong></span>
+            <span>PDF • 300 KB</span>
+            <span>Apply for membership</span>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      </div>
+      <div class="file" data-name="Event Registration" data-desc="Register for events">
+        <div class="file-info">
+          <i class="fa-solid fa-file-word"></i>
+          <div class="file-details">
+            <span><strong>Event Registration Form</strong></span>
+            <span>DOCX • 1 MB</span>
+            <span>Register for events</span>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      </div>
+    </div>
+
+    <div class="category" data-category="Event Materials">
+      <h2><i class="fa-solid fa-calendar-days"></i> Event Materials</h2>
+      <div class="file" data-name="Islamic Awareness Brochure" data-desc="Awareness week brochure">
+        <div class="file-info">
+          <i class="fa-solid fa-file-pdf"></i>
+          <div class="file-details">
+            <span><strong>Brochure for Islamic Awareness Week</strong></span>
+            <span>PDF • 1 MB</span>
+            <span>Awareness week brochure</span>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      </div>
+      <div class="file" data-name="Charity Poster" data-desc="Charity drive poster">
+        <div class="file-info">
+          <i class="fa-solid fa-file-image"></i>
+          <div class="file-details">
+            <span><strong>Poster for Charity Drive</strong></span>
+            <span>JPEG • 500 KB</span>
+            <span>Charity drive poster</span>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Back to Home -->
+  <button class="back-home" onclick="window.location.href='index.html'"><i class="fa fa-home"></i> Back To Home</button>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const filterSelect = document.getElementById("filterSelect");
+    const files = document.querySelectorAll(".file");
+
+    function filterResources(){
+      const searchVal = searchInput.value.toLowerCase();
+      const filterVal = filterSelect.value;
+
+      files.forEach(file => {
+        const name = file.getAttribute("data-name").toLowerCase();
+        const desc = file.getAttribute("data-desc").toLowerCase();
+        const category = file.closest(".category").getAttribute("data-category");
+
+        if((filterVal === "all" || category === filterVal) &&
+           (name.includes(searchVal) || desc.includes(searchVal))){
+          file.style.display = "flex";
+        } else {
+          file.style.display = "none";
+        }
+      });
+    }
+
+    searchInput.addEventListener("input", filterResources);
+    filterSelect.addEventListener("change", filterResources);
+  </script>
+</body>
+</html>
