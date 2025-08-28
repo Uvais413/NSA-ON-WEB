@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publishing Bureau</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #0a1a33;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #ffb400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    header p { color: #ccc; }
+
+    section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    section p { color: #ddd; text-align: center; }
+
+    .btn {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover { transform: scale(1.05); }
+
+    .btn-yellow { background: #ffb400; color: #000; }
+    .btn-yellow:hover { background: #e09c00; }
+
+    .btn-green { background: #00d084; color: #fff; }
+    .btn-green:hover { background: #00a76b; }
+
+    .btn-blue { background: #007bff; color: #fff; }
+    .btn-blue:hover { background: #0056b3; }
+
+    .btn-red { background: #e63946; color: #fff; }
+    .btn-red:hover { background: #c41c29; }
+
+    /* Publications Grid */
+    .publications {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .pub-card {
+      background: #fff;
+      color: #000;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+    .pub-card:hover { transform: translateY(-5px); }
+    .pub-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+    .pub-card h3 { margin: 0.5rem 0; color: #203a43; }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0a1a33;
+      color: #ccc;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>📚 Publishing Bureau</h1>
+    <p>Share, Publish & Explore Knowledge</p>
+  </header>
+
+  <!-- Blog Section -->
+  <section>
+    <h2>📰 Visit Our Blog</h2>
+    <p>Explore articles, research, and creative writings from our publishing bureau.</p>
+    <div style="text-align: center;">
+      <a href="https://share.google/nnATRIMhbKPI2I9W7" class="btn btn-yellow">→ Go to Blog</a>
+    </div>
+  </section>
+
+  <!-- Submit Section -->
+  <section>
+    <h2>✒ Submit Your Work</h2>
+    <p>Students can send us their essays, stories, poems, travelogues, translations, and research works via email.</p>
+    <div style="text-align: center;">
+      <a href="mailto:rachanabimonthly@gmail.com" class="btn btn-green">📧 Send via Gmail</a>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section>
+    <h2>📄 Our Publications</h2>
+    <p>Read or download our publications, including essays, stories, poems, and research works.</p>
+    <p>All publications are available in PDF format.</p>
+
+    <div class="publications">
+      <div class="pub-card">
+        <img src="img/r1.png" alt="RACHANA - 01">
+        <h3>2023 OCTOBER</h3>
+        <a href="pdf/RACHANA  -01.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -01.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="img/r2.png" alt="RACHANA - 02">
+        <h3>2023 DECEMBER</h3>
+        <a href="pdf/RACHANA  -02.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -02.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="img/r3.png" alt="RACHANA - 03">
+        <h3>2024 FEBRUARY</h3>
+        <a href="pdf/RACHANA  -03.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -03.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="img/r4.png" alt="RACHANA - 04">
+        <h3>2024 APRIL</h3>
+        <a href="pdf/RACHANA  -04.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -04.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="img/r5.png" alt="RACHANA - 05">
+        <h3>2024 JUN</h3>
+        <a href="pdf/RACHANA  -05.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -05.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="img/r6.png" alt="RACHANA - 06">
+        <h3>2024 SEPTEMBER</h3>
+        <a href="pdf/RACHANA  -06.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -06.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="IMG/r7.png" alt="RACHANA - 07">
+        <h3>2024 NOV-DEC</h3>
+        <a href="pdf/RACHANA  -07.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -07.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      <div class="pub-card">
+        <img src="img/r8.png" alt="RACHANA - 08">
+        <h3> 2025 JULY </h3>
+        <a href="pdf/RACHANA  -08.pdf" class="btn btn-blue">📖 Read</a>
+        <a href="pdf/RACHANA  -08.pdf" class="btn btn-red">⬇ Download</a>
+      </div>
+      
+
+      <!-- <div class="pub-card">
+        <img src="https://via.placeholder.com/300x400.png?text=Research+Papers" alt="Research Papers">
+        <h3>Research Papers</h3>
+        <a href="#" class="btn btn-blue">📖 Read</a>
+        <a href="#" class="btn btn-red">⬇ Download</a>
+      </div>-->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Publishing Bureau | Powered by N.S.A Litrary Wing
+  </footer>
+</body>
+</html>
