@@ -197,5 +197,24 @@
   <footer>
     © 2025 Publishing Bureau <BR> Powered by N.S.A Litrary Wing
   </footer>
+
+  <script>
+  // Select all download buttons
+  document.querySelectorAll(".btn-red").forEach(button => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // stop opening in new tab
+      const fileUrl = this.getAttribute("href");
+
+      // Create a hidden <a> element with download attribute
+      const a = document.createElement("a");
+      a.href = fileUrl;
+      a.download = fileUrl.split('/').pop(); // filename from URL
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+  });
+</script>
+
 </body>
 </html>
