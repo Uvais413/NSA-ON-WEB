@@ -145,18 +145,19 @@
 
   <!-- Login Section -->
   <div id="login-section">
-    <h2>🔒 Member Login</h2>
+    <h2>🔒 Login</h2>
     
-    <input type="text" id="username" placeholder="Enter Username">
+    <input type="text" id="username" placeholder="Enter User Id">
     <input type="password" id="password" placeholder="Enter Passcode">
     <button onclick="checkLogin()">Login</button>
     <p id="error"></p>
-    <p>Our publications are available only for subscription members.<br>
-       To subscribe, contact us: <br>
-      <button style="background-color: #25D366; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: bold;">
-  <a href="https://wa.me/917025560027?text=For%20Nsa%20Publication%20Subscription" target="_blank" style="text-decoration: none; color: white;">
-    📞 +91 7025560027
-  </a>
+    <p>Our publications are available only for subscription members.<br> <!--,
+       To subscribe, contact us:--> <br>
+      <button style="background-color: #25D366; border: none; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-weight: bold;color: white;">
+  
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="15" height="15" style="vertical-align: middle;color: white;">
+
+  <a href="https://wa.me/917025560027?text=For%20Nsa%20Publication%20Subscription" target="_blank" style="text-decoration: none; color: white;">subscriptions</a>
 </button>
 
   </div>
@@ -252,7 +253,7 @@
       const error = document.getElementById("error");
 
       if ((username === "Uv" && password === "1111") || 
-          (username === "resd" && password === "#00")) {
+          (username === "Rachana" && password === "#00.")) {
         document.getElementById("login-section").style.display = "none";
         document.getElementById("main-content").style.display = "block";
       } else {
