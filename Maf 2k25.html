@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Majma Art's Fest 2K25</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{
+    background: radial-gradient(circle at top,#0d47a1 0%,#00193a 100%);
+    color:#fff; scroll-behavior:smooth; overflow-x:hidden;
+  }
+
+  /* floating golden lights animation */
+  .light{
+    position:fixed;
+    width:10px;height:10px;
+    background:#ffd700;
+    border-radius:50%;
+    box-shadow:0 0 10px #ffd700;
+    animation:float 10s linear infinite;
+    opacity:0.7;
+  }
+  @keyframes float{
+    0%{transform:translateY(100vh) scale(0.5);}
+    100%{transform:translateY(-10vh) scale(1);}
+  }
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  header{
+    background:linear-gradient(90deg,#002f6c,#1565c0);
+    color:#ffd700;text-align:center;padding:25px 10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.3);
+    animation:fadeIn 1.5s ease-out;
+  }
+  header img{width:70px;height:70px;border-radius:50%;vertical-align:middle;margin-right:10px;}
+  header h1{display:inline-block;font-size:2rem;vertical-align:middle;}
+
+  section{padding:50px 20px;text-align:center;animation:fadeIn 1.2s ease forwards;}
+  h2{color:#ffd700;margin-bottom:20px;font-size:1.8rem;text-shadow:0 0 8px #000;}
+  
+  .guest,.committee{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+  .guest-card,.committee-card{
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:15px;padding:10px;width:150px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    transition:transform 0.4s, box-shadow 0.4s;
+  }
+  .guest-card:hover,.committee-card:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 0 20px #ffd700;
+  }
+  .guest-card img,.committee-card img{
+    width:100%;border-radius:10px;height:150px;object-fit:cover;
+  }
+  .guest-card h4,.committee-card h4{margin-top:10px;color:#ffd700;font-size:1rem;}
+  .guest-card p,.committee-card p{font-size:0.9rem;color:#fff;}
+
+  .posters,.highlights{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+  .posters img,.highlights img{
+    width:200px;height:280px;object-fit:cover;border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.4);transition:transform 0.3s;
+  }
+  .posters img:hover,.highlights img:hover{transform:scale(1.08);box-shadow:0 0 20px #ffd700;}
+
+  iframe{width:90%;max-width:600px;height:315px;border:none;border-radius:10px;box-shadow:0 0 20px rgba(0,0,0,0.5);}
+
+  .buttons{margin:30px 0;}
+  .btn{
+    background:linear-gradient(90deg,#ffd700,#ffb300);
+    color:#000;border:none;padding:12px 25px;margin:10px;border-radius:30px;
+    cursor:pointer;font-size:1rem;transition:all 0.3s;font-weight:bold;
+  }
+  .btn:hover{background:linear-gradient(90deg,#ffb300,#ffd700);transform:scale(1.07);box-shadow:0 0 20px #ffd700;}
+
+  footer{
+    background:#00193a;color:#fff;text-align:center;padding:25px 10px;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.4);
+  }
+  footer a{color:#ffd700;text-decoration:none;font-weight:bold;}
+  footer a:hover{text-decoration:underline;}
+
+  @media(max-width:700px){
+    .guest-card,.committee-card{width:120px;}
+    .posters img,.highlights img{width:150px;height:200px;}
+    header h1{font-size:1.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- floating lights (JS adds them below) -->
+
+<header>
+  <img src="img/logo..jpg" alt="Majma Fest 2k25 Logo">
+  <h1>Majma Art's Fest 2K25</h1>
+</header>
+
+<section id="guests">
+  <h2>Our Honoured Guests</h2>
+  <div class="guest">
+    <div class="guest-card"><img src="img/fizy usd.jpg"><h4>Usthad K.A Rahman Faizy </h4><p>Principal,Majma'a Wafy Collage</p></div>
+    <div class="guest-card"><img src="img/cm usthad.jpg"><h4>Uathad C.M Kutty Saqafy</h4><p>V.Principal, Majma'a Wafy Collage</p></div>
+    <div class="guest-card"><img src="img/nadwi usd.jpg"><h4>Dr.Yoosuf Nadwi</h4><p>Professor , W.M.O Arts & Science Collage</p></div>
+    <div class="guest-card"><img src="fest/mubarak.jpg"><h4>Dr.Abdurahiman Mubarak Fazfari</h4><p>Member KSOCB</p></div>
+    <div class="guest-card"><img src="img/ijaz usd.jpg"><h4>Ijaz Hasan Hasani</h4><p>Senior Web Journalist</p></div>
+  </div>
+</section>
+
+<section id="posters">
+  <h2>Promo Posters</h2>
+  <div class="posters">
+    <img src="fest/p1.jpg"><img src="fest/p2.jpg"><img src="fest/p3.jpg"><img src="fest/p4.jpg"><img src="fest/p5.jpg">
+  </div>
+</section>
+
+<section id="video">
+  <h2>Videos </h2>
+  <div>  </div>
+  <div>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/tTnmbP2qhNE?si=H2pQNHVS6baoXBV-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  
+</section>
+
+<section class="buttons">
+<a href="https://drive.google.com/file/d/14Cuc-TTCMzQgBod37S3gD95l2JxhVw4C/view?usp=drive_link" target="_blank"><button class="btn">Fest 2k25 MANUAL</button></a>
+  <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTi6GlKTFA5tmnk8ooJfJXpXeDR1gaNG_P8iUYjMEwbhX7Lo6AYkrMAPSlOXJ4N-0-xRoJctaZ9HkgP/pubhtml?gid=405170445&single=true" target="_blank"><button class="btn">Get Result</button></a> 
+  <a href="https://drive.google.com/drive/folders/1Q1MWIAieELL_0-n3mmi7WthLmk_aiplD?usp=sharing" target="_blank"><button class="btn"> Fest Photos (Day 1 & 2)</button></a>
+  <a href="https://drive.google.com/EXAMPLE" target="_blank"><button class="btn"> Fest Photos (Day 3)</button></a>
+</section>
+
+<section id="highlights">
+  <h2>Fest Highlights</h2>
+  <div class="highlights">
+    <img src="fest/h1.jpg"><img src="fest/h2.jpg"><img src="fest/h3.jpg"><img src="fest/h4.jpg"><img src="fest/h5.jpg"><img src="fest/h6.jpg"><img src="fest/h7.jpg"><img src="fest/h8.jpg"><img src="fest/h9.jpg"> <img src="fest/h10.jpg"><img src="fest/h11.jpg"><img src="fest/h12.jpg"><img src="fest/h13.jpg">
+  </div>
+</section>
+
+<section id="highlights">
+  <h2>Champions</h2>
+  <div class="highlights">
+    <img src="fest/c1.jpg"><img src="fest/c2.jpg"><img src="fest/c3.jpg"><img src="fest/c4.jpg"><img src="fest/c5.jpg"><img src="fest/c7.jpg"><img src="fest/c8.jpg">
+  </div>
+</section>
+
+<section id="committee">
+  <h2>Fest Committee</h2>
+  <div class="committee">
+    <div class="committee-card"><img src="img/UA usthad.jpg"><h4>Usthad Unais Azhari</h4><p>Staff Controller</p></div>
+    <div class="committee-card"><img src="img/Rw Usd.jpg"><h4>Usthad Rafeeq Wafy</h4><p>Staff Controller</p></div>
+    <div class="committee-card"><img src="fest/uv.jpg"><h4>Mohammed Uvais A.P</h4><p>Chairman</p></div>
+    <div class="committee-card"><img src="img/almas.jpg"><h4>Almas K.C</h4><p>Coordinator</p></div>
+    <div class="committee-card"><img src="img/adil.jpg"><h4>Mohammed Adil</h4><p>Director</p></div>
+    <div class="committee-card"><img src="img/faris.jpg"><h4>Muhammed Faris</h4><p>Ass.Director</p></div>
+    <div class="committee-card"><img src="fest/anu.jpg"><h4>Muhammed Anwer </h4><p>Convenor</p></div>
+    <div class="committee-card"><img src="fest/safwan.jpg"><h4>Muhammed Safwan</h4><p>Ass.Convenor</p></div>
+    <div class="committee-card"><img src="fest/fou.jpg"><h4>Fouzul Ameen</h4><p>Ass.Convenor</p></div>
+  </div>
+</section>
+
+<section id="feedback">
+  <h2>Give Your Feedback</h2>
+  <a href="https://forms.gle/bH1uWVofAK5scd566" target="_blank"><button class="btn">Click to Give Your Valuable Feedback !</button></a>
+</section>
+
+<footer>
+  <p>Designed by 
+  <a href="https://wa.me/917025560027?text=Hi,%20I%20am%20from%20Majma%20Fest%202K25%20Website"><strong>Mohammed Uvais A.P</strong></a></p>
+</footer>
+
+<script>
+  // generate floating lights
+  for(let i=0;i<25;i++){
+    let light=document.createElement('div');
+    light.classList.add('light');
+    light.style.left=Math.random()*100+'vw';
+    light.style.animationDuration=(8+Math.random()*5)+'s';
+    light.style.width=light.style.height=(5+Math.random()*8)+'px';
+    document.body.appendChild(light);
+  }
+</script>
+
+</body>
+</html>
