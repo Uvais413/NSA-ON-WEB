@@ -232,6 +232,27 @@ We believe that college life is not just about academics, but also about buildin
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
+<script>
+(function() {
+  const data = {
+    page: location.pathname + location.search,
+    ua: navigator.userAgent,
+    time: new Date().toISOString()
+  };
+
+  // Replace with your Apps Script Web App URL
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYe2WW7EW12O1nOT1mr_ySFsARvul0HkuFB4Cx3vWrKHE0uWQM1cRJX233jQAYN5LzPA/exec";
+
+  // Send visit info silently
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(data)
+  });
+})();
+</script>
+
 <script defer src="/_vercel/insights/script.js"></script>
 
   <script src="SCRIPT.JS"></script>
