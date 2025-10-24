@@ -19,6 +19,93 @@
   <meta property="og:url" content="https://nsa-on-web.vercel.app/" />
 </head>
 <body>
+
+  <script>
+(async function() {
+  // ------------------ CONFIG: replace with your Apps Script Web App URL ------------------
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw7uGVuKyN1bdCAV_DDdi6AC1Lemoj3T7v6NJkg5qaWgZWfYettaZZxVU2eSR9C1-gHsA/exec";
+  // ---------------------------------------------------------------------------------------
+
+  // helper: detect device type (basic)
+  function getDeviceType() {
+    const ua = navigator.userAgent || "";
+    const uaLower = ua.toLowerCase();
+    if (/mobile|android|iphone|ipod|blackberry|windows phone/.test(uaLower)) return "mobile";
+    if (/tablet|ipad/.test(uaLower)) return "tablet";
+    return "desktop";
+  }
+
+  // get public IP (api.ipify.org supports CORS)
+  async function fetchIP() {
+    try {
+      const resp = await fetch("https://api.ipify.org?format=json");
+      if (!resp.ok) return null;
+      const j = await resp.json();
+      return j.ip || null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  // get geolocation for IP using ipapi.co (CORS allowed). Falls back gracefully.
+  async function fetchGeo(ip) {
+    try {
+      // ipapi.co allows /json without API key for basic fields
+      const url = ip ? `https://ipapi.co/${ip}/json/` : "https://ipapi.co/json/";
+      const resp = await fetch(url);
+      if (!resp.ok) return null;
+      const j = await resp.json();
+      // j contains country_name, region, city, etc.
+      return {
+        country: j.country_name || "",
+        region: j.region || j.region_code || "",
+        city: j.city || "",
+        ip: j.ip || ip || ""
+      };
+    } catch (err) {
+      return null;
+    }
+  }
+
+  // Build payload
+  try {
+    const page = location.pathname + location.search;
+    const ua = navigator.userAgent || "";
+    const clientTime = new Date().toISOString();
+    const deviceType = getDeviceType();
+
+    // Get IP and geo (best-effort)
+    const ip = await fetchIP();
+    const geo = await fetchGeo(ip);
+
+    const payload = {
+      page: page,
+      ua: ua,
+      time: clientTime,
+      deviceType: deviceType,
+      ip: geo && geo.ip ? geo.ip : (ip || ""),
+      country: geo && geo.country ? geo.country : "",
+      region: geo && geo.region ? geo.region : "",
+      city: geo && geo.city ? geo.city : ""
+    };
+
+    // Send to Apps Script (no-cors so request succeeds cross-origin)
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    }).catch(err => {
+      // no-cors often hides errors — this is expected behavior in many browsers
+      console.warn("Visit log sent (no-cors).", err);
+    });
+
+  } catch (err) {
+    console.error("Visit logger error:", err);
+  }
+})();
+</script>
+
   
   <header>
     <div class="topbar">
@@ -231,26 +318,6 @@ We believe that college life is not just about academics, but also about buildin
 </footer>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script>
-(function() {
-  const data = {
-    page: location.pathname + location.search,
-    ua: navigator.userAgent,
-    time: new Date().toISOString()
-  };
-
-  // Replace with your Apps Script Web App URL
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYe2WW7EW12O1nOT1mr_ySFsARvul0HkuFB4Cx3vWrKHE0uWQM1cRJX233jQAYN5LzPA/exec";
-
-  // Send visit info silently
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(data)
-  });
-})();
 </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
