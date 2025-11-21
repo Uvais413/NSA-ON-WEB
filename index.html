@@ -3,20 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Noorul Huda Student's Association (NSA) | Kavnoor Majma'a Wafy College</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Add Material Icons for icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="description" content="Welcome to the official website of the Noorul Huda Student's Association (NSA), a leading Islamic student union at Kavnoor Majma'a Wafy College. Explore our mission, committee, and events." />
-  <meta name="keywords" content="Noorul Huda Student's Union, NSA, Kavnoor Majma'a Wafy College, Wafy College, Noorul Huda Student's Association, Islamic College, Student Union Kavnoor, top islamic student union, student union" />
-  <meta name="author" content="MOHAMMED UVAIS A.P" />
-  <link rel="icon" type="image/x-icon" href="img/logo.jpg" />
+  <title>Noorul Huda Student's Association (NSA) — Kavnoor Majma'a Wafy College</title>
+
+  <!-- Improved meta description focused on search keywords -->
+  <meta name="description" content="Noorul Huda Student's Association (NSA) — the active Islamic student union at Kavnoor Majma'a Wafy College. Join NSA for events, leadership, community, and student welfare." />
+  <meta name="keywords" content="Noorul Huda Student Union, NSA, Kavnoor Majma'a Wafy College, Wafy College, student union, Islamic student union, college activities" />
+
+  <!-- Allow crawling and prefer canonical -->
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nsa-on-web.vercel.app/" />
+
+  <!-- Open Graph / Twitter (ensure OG image uses absolute URL for best sharing results) -->
   <meta property="og:title" content="Noorul Huda Student's Association (NSA) | Kavnoor Majma'a Wafy College" />
-  <meta property="og:description" content="Official website of the Noorul Huda Student's Association (NSA) at Kavnoor Majma'a Wafy College." />
-  <meta property="og:image" content="img/logo.jpg" />
+  <meta property="og:description" content="Official site of Noorul Huda Student's Association — events, committee, members, and community at Kavnoor Majma'a Wafy College." />
+  <meta property="og:image" content="https://nsa-on-web.vercel.app/img/logo.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://nsa-on-web.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Noorul Huda Student's Association (NSA)" />
+  <meta name="twitter:description" content="Noorul Huda Student's Association — Kavnoor Majma'a Wafy College student union." />
+  <meta name="twitter:image" content="https://nsa-on-web.vercel.app/img/logo.jpg" />
+
+  <!-- Link to sitemap for crawlers -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  
+  <!-- Structured Data: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Noorul Huda Student's Association (NSA)",
+        "url": "https://nsa-on-web.vercel.app/",
+        "logo": "https://nsa-on-web.vercel.app/img/logo.jpg",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "url": "https://nsa-on-web.vercel.app/",
+        "name": "Noorul Huda Student's Association (NSA)",
+        "description": "Official site of Noorul Huda Student's Association — Kavnoor Majma'a Wafy College student union.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://nsa-on-web.vercel.app/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Add Material Icons for icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -118,12 +159,15 @@
       </div>
     </div>
     <nav class="navbar">
+      <!-- Make logo and site title a direct link to the canonical site -->
       <div class="logo">
-        <img src="img/logo.jpg" alt="Union Logo" />
-        <div>
-          <h1>Noorul Huda Student's Association</h1>
-          <span class="logo-subtitle"></span>
-        </div>
+        <a href="https://nsa-on-web.vercel.app/" aria-label="Go to Noorul Huda Student's Association homepage" class="site-home-link">
+          <img src="img/logo.jpg" alt="Noorul Huda Student's Association logo" />
+          <div>
+            <h1>Noorul Huda Student's Association</h1>
+            <span class="logo-subtitle"></span>
+          </div>
+        </a>
       </div>
       <!-- Mobile Nav Icon -->
       <button class="mobile-nav-toggle" aria-label="Open navigation" tabindex="0">
@@ -313,6 +357,13 @@ We believe that college life is not just about academics, but also about buildin
        target="_blank" 
        style="color:#ffd700; font-weight:bold; text-decoration:none;">
        Mohammed Uvais
+    </a>
+  </p>
+  <!-- Add visible site link -->
+  <p>
+    Visit the website: 
+    <a href="https://nsa-on-web.vercel.app/" aria-label="Open Noorul Huda Student's Association website">
+      https://nsa-on-web.vercel.app/
     </a>
   </p>
 </footer>
