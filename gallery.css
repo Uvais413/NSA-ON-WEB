@@ -159,3 +159,75 @@ body {
   color: white;
   cursor: pointer;
 }
+/* ...existing code... */
+
+/* Class Unions special styles */
+.class-unions {
+  background: linear-gradient(135deg, rgba(0,64,128,0.04), rgba(0,128,192,0.02));
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+.class-unions .section-desc {
+  color: #556;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* Slightly larger tiles for this section */
+.class-unions .gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Figure & caption overlay */
+.class-unions .gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.class-unions .gallery-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+}
+.class-unions .gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* caption slides up on hover */
+.class-unions figure { margin: 0; }
+.class-unions figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.6));
+  color: #fff;
+  transform: translateY(100%);
+  transition: transform 0.22s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.class-unions .gallery-item:hover figcaption { transform: translateY(0); }
+.class-unions figcaption span { font-weight: 600; font-size: 0.98rem; }
+.class-unions figcaption small { font-size: 0.78rem; opacity: 0.95; }
+
+/* move download icon slightly inward for this section */
+.class-unions .download-btn {
+  bottom: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  backdrop-filter: blur(2px);
+}
+
+/* responsive tweak */
+@media (max-width: 600px) {
+  .class-unions .gallery-item img { height: 140px; }
+}
